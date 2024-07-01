@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Us- 3BB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body, html {
+        font-family: Arial, sans-serif;
+        background-color: #f1c1fd;
+        color: #333;
+        height: 100%;
+        overflow-x: hidden;
+    }
+    .main {
+        width: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url(img/img2.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar {
+        width: 100%;
+        max-width: 1200px;
+        height: 75px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        background: rgba(0,0,0,0.6);
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+
+    .icon img {
+        height: 60px;
+    }
+
+    .logo {
+        color: #ff7200;
+        font-size: 35px;
+        font-family: Arial;
+    }
+
+    .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin-left: 20px;
+            position: relative; /* Important for dropdown */
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f14b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #dddddd41;
+        }
+    .content {
+        width: 1200px;
+        height: auto;
+        margin: auto;
+        color: #fff;
+        position: relative;
+        text-align: center;
+        padding: 50px 0;
+    }
+
+    .content h1 {
+        font-family: 'Times New Roman';
+        font-size: 50px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .content p {
+        font-family: Arial;
+        font-size: 18px;
+        letter-spacing: 1.2px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+    }
+
+    .content .cn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff7200;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        transition: 0.3s ease;
+    }
+
+    .content .cn:hover {
+        background-color: #fff;
+        color: #ff7200;
+    }
+
+    .section {
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .section p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto 20px;
+    }
+
+    .org-chart {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 30px;
+    }
+
+    .org-chart div {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #974cfa;
+        border-radius: 10px;
+        background-color: #fff;
+        color: #333;
+        max-width: 200px;
+    }
+
+    .org-chart div img {
+        width: 180px;
+        height: 250px;
+        margin-bottom: 15px;
+    }
+
+    .org-chart div img {
+    max-width: 200px;
+    margin-bottom: 15px;
+}
+    .org-chart div h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .company-image {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    .company-image img {
+        width: 200px;
+        height: 300px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .vision-mission {
+        background-color: #f9f9f9;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .vision-mission h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .vision-mission .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .vision-mission p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .goal {
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .goal h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .goal p {
+        font-size: 18px;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1200px) {
+        .navbar {
+            width: 100%;
+            height: 100px;
+        }
+
+        ul {
+            margin-left: 30px;
+        }
+
+        ul li {
+            margin-left: 60px;
+        }
+
+        ul li a {
+            font-size: 1.6vw;
+        }
+
+        .search {
+            margin-top: 3px;
+            margin-left: 290px;
+        }
+
+        .srch {
+            height: 40px;
+            width: 190px;
+            font-size: 14px;
+        }
+
+        .btn {
+            height: 40px;
+            width: 80px;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .content h1,
+        .content p {
+            font-size: 4.5vw;
+        }
+
+        .content .cn {
+            width: 13%;
+            height: 3.5vw;
+            font-size: 1.8vw;
+        }
+
+        .content a {
+            font-size: 1.6vw;
+        }
+    }
+
+    @media screen and (max-width: 830px) {
+        .content {
+            margin-top: 120px;
+            width: 80%;
+            margin-left: 40px;
+        }
+
+        .content h1,
+        .content p {
+            font-size: 6vw;
+        }
+
+        .content .cn {
+            width: 15%;
+            height: 4.5vw;
+            font-size: 2vw;
+        }
+
+        .content a {
+            font-size: 2vw;
+        }
+
+        .logo {
+            margin-left: 240px;
+            width: 100%;
+            margin-top: 15px;
+            font-size: 5vw;
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        ul {
+            margin-top: -5px;
+            margin-left: 5px;
+        }
+
+        ul li {
+            margin-left: 60px;
+        }
+
+        ul li a {
+            font-size: 2vw;
+        }
+
+        .search {
+            margin-top: -20px;
+            margin-left: 60px;
+        }
+
+        .srch {
+            height: 30px;
+            width: 160px;
+            font-size: 12px;
+        }
+
+        .btn {
+            height: 30px;
+            width: 70px;
+        }
+
+        .main {
+            padding-left: 20px;
+            height: 180vh;
+        }
+        .footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #d7dfa3;
+            border-radius: 20px;
+            color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            margin-top: 80px;
+            margin-left: 20px;
+        }
+
+        .search {
+            margin-top: -40px;
+            margin-left: 42px;
+        }
+
+        .logo {
+            margin-left: 180px;
+            font-size: 4vw;
+        }
+
+        ul {
+            margin-top: -25px;
+            margin-left: 10px;
+        }
+
+        ul li {
+            margin-left: 45px;
+        }
+
+        ul li a {
+            font-size: 3vw;
+        }
+
+        .srch {
+            width: 130px;
+            font-size: 10px;
+        }
+
+        .btn {
+            width: 50px;
+            font-size: 10px;
+        }
+
+        .main {
+            height: 180vh;
+        }
+    }
+    .product-images {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.product {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product img:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.product .name {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+    color: #10075c;
+}
+
+.product .description {
+    color: #666;
+}
+
+</style>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <a href="index.html"><img src="img/2.png" alt="Logo" title="Back to Home"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="abo.html">About</a></li>
+                    <li class="dropdown-toggle">
+                        <a href="prod.html" onclick="toggleDropdown(event)">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="prod.html#powder" >Immunity</a></li>
+                            <li><a href="prod.html#gummy" >Pastilles</a></li>
+                            <li><a href="prod.html#yogurt" >Multivitamin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kid.html">Kid's Health</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+    
+        <div class="content">
+            <h1>About Us</h1>
+            <p>Welcome to 3 Budak Bijak! We are a team of three dedicated individuals, committed to delivering the best services to our clients. Our vision and mission drive us to excel in our field, and we are always looking forward to new challenges and opportunities.</p>
+            <audio controls>
+                <source src="img/nutrii.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Meet Our Team</h2>
+        <div class="org-chart">
+            <div>
+                <img src="img/suu1.jpg" alt="Member 1">
+                <h3>CEO</h3>
+                <p>Nur Suhailah</p>
+                <p>Our visionary leader</p>
+            </div>
+            <div>
+                <img src="img/ball1.jpg" alt="Member 2">
+                <h3>DEVELOPER</h3>
+                <p>Balqis Batrisyia</p>
+                <p>Tech Specialist</p>
+            </div>
+            <div>
+                <img src="img/qilahh1.jpg" alt="Member 3">
+                <h3>DEVELOPER</h3>
+                <p>Aqilah Arif</p>
+                <p>Tech Specialist</p>
+            </div>
+            <div>
+                <img src="img/aryy1.jpg" alt="Member 3">
+                <h3>MANAGER</h3>
+                <p>Arina Syafiqah</p>
+                <p>Operation Head</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="vision-mission">
+        <h2>Our Vision & Mission</h2>
+        <div class="container">
+            <p>Our vision is to be the leading company in our industry, known for our innovation and excellence. Our mission is to provide top-notch services to our clients and to constantly strive for improvement and growth.</p>
+        </div>
+    </div>
+    
+    <div class="goal">
+        <h2>Our Goals</h2>
+        <p>Our primary goal is to ensure customer satisfaction through our services. We aim to expand our reach and to continue to innovate and excel in our field.</p>
+    </div>
+    
+    <div class="company-image">
+        <img src="img/logo3.jpg" alt="Company">
+    </div>
+    <!-- Goal Section -->
+    <div class="goal">
+        <h2>Our Goal</h2>
+        <p>Our goal is to help parents take care of their children's nutrition. The price we offer is very reasonable for less-able parents to afford to buy. This is in line with our tagline, "Nourishing the Next Generation of Genius." Children are the hope of the future.</p>
+    </div>
+    <section class="product-images">
+        <h2>Our Feedback</h2>
+        <div class="products-grid">
+            <div class="product">
+                <p class="name">Before</p>
+                <img src="img/amm1.jpg">
+                <p class="name">Before</p>
+                <img src="img/cmm1.jpg">
+               
+            </div>
+            <div class="product">
+                <p class="name">After</p>
+                <img src="img/amm2.jpg">
+                <p class="name">After</p>
+                <img src="img/cmm2.jpg" >
+               
+            </div>
+            <div class="product">
+                <p class="name">Before</p>
+                <img src="img/dmm1.jpg">
+                <p class="name">Before</p>
+                <img src="img/bmm1.jpg">
+              
+            </div>
+            <div class="product">
+                <p class="name">After</p>
+                <img src="img/dmm2.jpg">
+                <p class="name">After</p>
+                <img src="img/bmm2.jpg">
+             
+            </div>
+        </div>
+    </section>
+    <div class="footer">
+        <p>&copy; 2024 [3 Budak Bijak]. All rights reserved.</p>
+    </div>
+    
+</body>
+</html>
+    
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            var dropdown = event.target.nextElementSibling;
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle a')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>

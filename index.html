@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - 3BB</title>
+    <style>
+        /* Existing styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #e2ce5d;
+            color: #333;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url('img/img1.jpg');
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(0,0,0,0.6);
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .icon img {
+            height: 60px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin-left: 20px;
+            position: relative; /* Important for dropdown */
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f14b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #dddddd41;
+        }
+
+        .header {
+            max-width: 1200px;
+            margin: auto;
+            color: #fff;
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Times New Roman';
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header h1 span {
+            color: #ff7200;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+
+        .header .cn {
+            margin-top: 20px;
+            background: #ff7200;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .header .cn a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .header .cn:hover {
+            background-color: #fff;
+            color: #ff7200;
+        }
+
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            background: #d7dfa3;
+            border-radius: 10px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .content .par {
+            font-size: 1.2em;
+            color: #1b1b1b;
+            margin-bottom: 20px;
+        }
+
+        .content .cn {
+            background: #ff7200;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .content .cn a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .content .cn:hover {
+            background-color: #fff;
+            color: #ff7200;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+        }
+
+        .testimonial-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-width: 300px;
+        }
+
+        .newsletter-signup {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff7200;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffd7e2;
+            transform: translateY(-2px);
+        }
+        .footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #d7dfa3;
+            border-radius: 20px;
+            color: #050505;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media screen and (max-width: 1200px) {
+            .navbar {
+                padding: 0 10px;
+            }
+
+            .header h1 {
+                font-size: 3em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            .header .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+
+            .content {
+                max-width: 90%;
+            }
+
+            .content h1 {
+                font-size: 2em;
+            }
+
+            .content .par {
+                font-size: 1em;
+            }
+
+            .content .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 830px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .navbar .icon img {
+                height: 50px;
+            }
+
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .menu ul li {
+                margin: 10px 0;
+            }
+
+            .header {
+                padding-top: 70px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            .header .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+
+            .content {
+                margin-top: 80px;
+            }
+
+            .content h1 {
+                font-size: 1.8em;
+            }
+
+            .content .par {
+                font-size: 0.9em;
+            }
+
+            .content .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar .icon img {
+                height: 40px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 0.8em;
+            }
+
+            .header .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+
+            .content h1 {
+                font-size: 1.5em;
+            }
+
+            .content .par {
+                font-size: 0.8em;
+            }
+
+            .content .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <a href="index.html"><img src="img/2.png" alt="Logo" title="Back to Home"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="abo.html">About</a></li>
+                    <li class="dropdown-toggle">
+                        <a href="prod.html" onclick="toggleDropdown(event)">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="prod.html#powder">Immunity</a></li>
+                            <li><a href="prod.html#gummy">Pastilles</a></li>
+                            <li><a href="prod.html#yogurt">Multivitamin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kid.html">Kid's Health</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+        <div class="header">
+            <h1>Welcome to <br><span>3 Budak Bijak</span></h1>
+            <p class="par">Our goal is to help parents take care of their children's nutrition. The price we offer is very
+                reasonable for less-able parents to afford to buy. This is in line with our tagline, 
+                "Nourishing the Next Generation of Genius." Children are the hope of the future.</p>
+            <audio controls>
+                <source src="img/nutrii.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+    <div class="content">
+        <h1>What Our Customers Say</h1>
+        <div class="testimonial-carousel">
+            <div class="testimonial-item">
+                <video width="380" height="300" controls>
+                    <source src="img/rev.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>"Great value for money and excellent quality."</p>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+    </div>
+    <div class="content">
+        <h1>Stay Updated</h1>
+        <p class="par">Subscribe to our newsletter for the latest updates and exclusive offers.</p>
+        <form class="newsletter-signup">
+            <input type="email" placeholder="Enter your email" required>
+            <button class="cn" type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div class="content">
+        <h1>Follow Us</h1>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/3_budakbijak?utm_source=qr&igsh=MWN5MTB6cWs3Z3V3YQ==" title="3 Budak Bijak" class="btn" target="_blank">3 Budak Bijak</a>
+            <a href="https://www.instagram.com/balqsbat?igsh=ZDIzbm9tenF0Zzhk" title="Balqis Batrisyia" class="btn" target="_blank">Balqis Batrisyia</a>
+            <a href="https://www.instagram.com/userxaqi__?utm_source=qr&igsh=MTlodnBxejRmbGVqbA==" title="Aqilah Arif" class="btn" target="_blank">Aqilah Arif</a>
+            <a href="https://www.instagram.com/_arynasyaf?utm_source=qr&igsh=MWR4bnVtYWZ3ZGJ0dg==" title="Arina Syafiqah" class="btn" target="_blank">Arina Syafiqah</a>
+            <!-- Add more social icons as needed -->
+        </div>
+    </div>
+        <div class="footer">
+            <p>&copy; 2024 [3 Budak Bijak]. All rights reserved.</p>
+        </div>
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            var dropdown = event.target.nextElementSibling;
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle a')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>

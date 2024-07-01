@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - 3BB</title>
+    <style>
+        /* Existing styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #e4a7a7;
+            color: #333;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url('img/img1.jpg');
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(0,0,0,0.6);
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+        .icon img {
+            height: 60px;
+        }
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+        }
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+        .menu ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f14b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown a:hover {
+            background-color: #dddddd41;
+        }
+        .header {
+            max-width: 1200px;
+            margin: auto;
+            color: #fff;
+            padding-top: 100px;
+            text-align: center;
+        }
+        .header h1 {
+            font-family: 'Times New Roman';
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .header h1 span {
+            color: #ff7200;
+        }
+        .header p {
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+        .header .cn {
+            margin-top: 20px;
+            background: #ff7200;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        .header .cn a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .header .cn:hover {
+            background-color: #fff;
+            color: #ff7200;
+        }
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.959);
+            border-radius: 10px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        .content h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .content .par {
+            font-size: 1.2em;
+            color: #1b1b1b;
+            margin-bottom: 20px;
+        }
+        .content .cn {
+            background: #ff7200;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        .content .cn a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .content .cn:hover {
+            background-color: #f5f5f5;
+            color: #ff7200;
+        }
+
+        /* New styles for product images and descriptions */
+        .products {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .product img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-description {
+            margin-top: 10px;
+            max-width: 500px;
+            text-align: center;
+            font-size: 1em;
+            color: #333;
+        }
+        .footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e4a7a7;
+            border-radius: 20px;
+            color: #0f0f0f;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 1200px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            .header h1 {
+                font-size: 3em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .header .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+            .content {
+                max-width: 90%;
+            }
+            .content h1 {
+                font-size: 2em;
+            }
+            .content .par {
+                font-size: 1em;
+            }
+            .content .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+        @media screen and (max-width: 830px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+            }
+            .navbar .icon img {
+                height: 50px;
+            }
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .menu ul li {
+                margin: 10px 0;
+            }
+            .header {
+                padding-top: 70px;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .header .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+            .content {
+                margin-top: 80px;
+            }
+            .content h1 {
+                font-size: 1.8em;
+            }
+            .content .par {
+                font-size: 0.9em;
+            }
+            .content .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .navbar .icon img {
+                height: 40px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p {
+                font-size: 0.8em;
+            }
+            .header .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+            .content h1 {
+                font-size: 1.5em;
+            }
+            .content .par {
+                font-size: 0.8em;
+            }
+            .content .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <a href="index.html"><img src="img/2.png" alt="Logo" title="Back to Home"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="abo.html">About</a></li>
+                    <li class="dropdown-toggle">
+                        <a href="prod.html" onclick="toggleDropdown(event)">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="prod.html#powder" >Immunity</a></li>
+                            <li><a href="prod.html#gummy" >Pastilles</a></li>
+                            <li><a href="prod.html#yogurt" >Multivitamin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kid.html">Kid's Health</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+        <div class="header">
+            <h1>Welcome to <br><span>3 Budak Bijak</span></h1>
+            <p class="par">Our goal is to help parents take care of their children's nutrition. The price we offer is very
+                reasonable for less-able parents to afford to buy. This is in line with our tagline, 
+                "Nourishing the Next Generation of Genius." Children are the hope of the future.</p>
+                <audio controls>
+                    <source src="img/nutrii.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+        </div>
+    </div>
+    <div id="powder" class="content">
+        <h1>Our Products</h1>
+        <p class="par">We offer a range of products designed to support your child's health and development.</p>
+        <div class="products">
+            <div class="product">
+                <i>Give your children's immune system the best support you can</i>
+                <video width="320" height="240" controls autoplay muted loop>
+                    <source src="img/pow.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="product-description">
+                <br><h2>NUTRIYUM Vitamin Powder</h2>
+                    <br>Description: Our Flavor Customizable Vitamin Powder allows for a personalized vitamin experience. 
+                    Parents and kids can choose from natural flavor packs to mix with the powder. This versatile product 
+                    can be added to water, milk, or smoothies, ensuring that even the pickiest eaters enjoy their daily 
+                    vitamins.<br>
+                    <br>
+                    <p>Market Need: Picky eaters often resist taking vitamins due to taste preferences. Our customizable 
+                        powder addresses this issue, making vitamin intake enjoyable and tailored to individual tastes.</p><br>
+                    <p>Benefit:
+                        <li>Boost health</li>
+                        <li>Important for healthy gums, bones and teeth</li>
+                    </p>
+                    <br><p>Who are recommended to take NUTRIYUM Vitamin Powder?
+                        <li>Children with poor eating habits</li>
+                    </p>
+                    <br><p>Direction of use:
+                        <li>Children 2 to 6 years old: 1-2 scoop per daily</li>
+                    </p>
+
+                    <br><p>Ingredients:
+                        <li>Vitamin C (30mg 75%)</li>
+                        <li>Vitamin A</li>
+                        <li>Monk Fruit Extract</li>
+                        <li>Omega-3 Fatty Acids (DHA)</li>
+                    </p>
+                </p>
+            </div>
+            <div id="gummy" class="product">
+                <i>More than just a tasty snack.</i>
+                <video width="320" height="240" controls autoplay muted loop>
+                    <source src="img/gum.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="product-description">
+                    <br><h2>NUTRIYUM Vitamin Gummies</h2>
+                    <br><p>Description: Our Interactive Vitamin Gummies come in a variety of fun shapes and vibrant colors. Each gummy
+                        is embedded with a QR code that can be scanned with a smartphone app. This interactive feature reveals an
+                        engaging educational video about health and nutrition, making the daily vitamin routine both fun and informative.
+                    </p>
+                    <br><p>Market Need: Many childrenfind it challenging to stick to a daily vitamin routine. By making vitamin intake fun
+                        and eductional, our Interactive Vitamin Gummies improve andherence and encourage kids to take their vitamin every day.
+                    </p>
+                    <br><p>Benefit:
+                        <li>Boost immunity</li>
+                        <li>Prevents common cold, hay fever, allergic and seasonal rhinitis</li>
+                        <li>Important for healthy gums, bones and teeth</li>
+                        <li>It is packed in individual sachet (5 pastilles per sachet) for better quality protection and convenience to carry 
+                            around for single use. This also helps to control the level of consumption for single use</li>
+                    </p>
+                    <br><p>Who are recommended to take NUTRIYUM Vitamin Gummie?
+                        <li>Children above 2 years old</li>
+                    </p>
+                    <br><p>Ingredients:
+                        <li>Vitamin C (30mg 75%)</li>
+                        <li>Vitamin B12</li>
+                        <li>Stevia</li>
+                        <li>Omega-3 Fatty Acids (DHA)</li>
+                    </p>
+                </p>
+            </div>
+
+            <div id="yogurt" class="product">
+                <i>Essential vitamins and minerals for healthy children's growth</i>
+                <video width="320" height="240" controls autoplay muted loop>
+                    <source src="img/yog.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="product-description">
+                    <br><h2>NUTRIYUM Probiotic Balls</h2>
+                    <br><li>For children 2-6 years old</li>
+                    <li>Strengthen the body and boost health</li>
+                    <br>Description: Our Probiotic and Vitamin-Infused Yogurt Balls are bite-sized, delicious, and packed
+                     with probiotics and essential vitamins. Perfect as a breakfast addition or a healthy snack, these yogurt
+                      balls support digestive health and provide a nutritious boost to a child's diet<br>
+                    <br>
+                    <p>Market Need: Digestive health is crucial for overall wellness, especially in children. By combining 
+                        probiotics and vitamins in a kid-friendly format, our yogurt balls offer a convenient and tasty way 
+                        to enhance gut health and ensure kids receive their daily vitamins.</p><br>
+                    <br><p>Healthy appetite: Probiotic and Vitamin-Infused Yogurt Balls is to improve appetite and Prebiotics 
+                        to improve digestion and promote overall healthy growth. It comes in a white purple chewable yogurt ball.</p>
+                    <p>Benefit:
+                        <li>Contains vital multivitamins to help promote overall healthy growth</li>
+                        <li>Lysine helps to improve appetite and maintain health</li>
+                        <li>Prebiotic helps to improve digestion and overall nutrients absorption by promoting the growth of good digestive 
+                            bacteria in the intestine</li>
+                    </p>
+                    <br><p>Who are recommended to take Probiotic and Vitamin-Infused Yogurt Balls?
+                        <li>Children with poor eating habits</li>
+                        <li>Children with poor digestion</li>
+                    </p>
+                    <br><p>Direction of use:
+                        <li>Children 2 to 6 years old: 1 Probiotic and Vitamin-Infused Yogurt Balls per daily</li>
+                    </p>
+
+                    <br><p>Ingredients:
+                        <li>Vitamin C (30mg 75%)</li>
+                        <li>Vitamin A</li>
+                        <li>Folic Acid (Vitamin B9)</li>
+                        <li>Blueberry Extract</li>
+                        <li>Probiotics</li>
+                    </p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 [3 Budak Bijak]. All rights reserved.</p>
+    </div>
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            var dropdown = event.target.nextElementSibling;
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle a')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>

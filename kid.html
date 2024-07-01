@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Health - 3BB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background-color: #96dbf0;
+    color: #333;
+}
+.main {
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.5) 70%), url(img/img3.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar {
+            width: 100%;
+            max-width: 1200px;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(0,0,0,0.6);
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .icon img {
+            height: 60px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin-left: 20px;
+            position: relative; /* Important for dropdown */
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f14b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #dddddd41;
+        }
+
+.content {
+    max-width: 800px;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    margin-top: 100px;
+}
+
+.content h1 {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.content .par {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.content .cn {
+    background: #ff7200;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.content .cn a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content .cn:hover {
+    background-color: #fff;
+}
+
+.links-section, .tips-section {
+    padding: 40px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+.links-section h2, .tips-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.links-container, .tips-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.link-item, .tip-item {
+    background: #f4f4f4;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.link-item:hover, .tip-item:hover {
+    transform: translateY(-10px);
+}
+
+.link-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.link-item p, .tip-item p {
+    font-size: 1em;
+    color: #666;
+}
+.footer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f0f3dc;
+            border-radius: 20px;
+            color: #0e0d0d;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+@media screen and (max-width: 1200px) {
+    .content h1 {
+        font-size: 2.5em;
+    }
+
+    .content .par {
+        font-size: 1em;
+    }
+
+    .content .cn {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 830px) {
+}   
+     .content h1 {
+        font-size: 2em;
+    }
+
+    .content .par {
+        font-size: 0.9em;
+    }
+
+    .content .cn {
+        font-size: 0.8em;
+        padding: 10px}
+    </style>
+
+<body>
+     <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <a href="index.html"><img src="img/2.png" alt="Logo" title="Back to Home"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="abo.html">About</a></li>
+                    <li class="dropdown-toggle">
+                        <a href="prod.html" onclick="toggleDropdown(event)">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="prod.html#powder" >Immunity</a></li>
+                            <li><a href="prod.html#gummy" >Pastilles</a></li>
+                            <li><a href="prod.html#yogurt" >Multivitamin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kid.html">Kid's Health</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Healthy Kids, Happy Lives</h1>
+            <p class="par">Discover our range of supplements and health tips to ensure your kids grow up strong and healthy. Explore the benefits of our products tailored specifically for children.</p>
+            <audio controls>
+                <source src="img/nutrii.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <div class="links-section">
+        <h2>Helpful Links for Kids' Health</h2>
+        <div class="links-container">
+            <div class="link-item">
+                <a href="https://www.kidshealth.org" target="_blank">KidsHealth</a>
+                <p>Your trusted source for health information about children and teens.</p>
+            </div>
+            <div class="link-item">
+                <a href="https://www.healthychildren.org" target="_blank">Healthy Children</a>
+                <p>From the American Academy of Pediatrics, health and safety tips for families.</p>
+            </div>
+            <div class="link-item">
+                <a href="https://www.cdc.gov/parents" target="_blank">CDC - Parent Information</a>
+                <p>Centers for Disease Control and Prevention's resources for children's health.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tips-section">
+        <h2>Health Tips for Kids</h2>
+        <div class="tips-container">
+            <div class="tip-item">
+                <h3>Balanced Diet</h3>
+                <p>Ensure your child gets a balanced diet with plenty of fruits, vegetables, and whole grains.</p>
+            </div>
+            <div class="tip-item">
+                <h3>Regular Exercise</h3>
+                <p>Encourage at least 60 minutes of physical activity every day to keep kids fit and healthy.</p>
+            </div>
+            <div class="tip-item">
+                <h3>Proper Hydration</h3>
+                <p>Make sure your child drinks plenty of water throughout the day to stay hydrated.</p>
+            </div>
+            <div class="tip-item">
+                <h3>Enough Sleep</h3>
+                <p>Children need 9-11 hours of sleep each night to support their growth and development.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 [3 Budak Bijak]. All rights reserved.</p>
+    </div>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            var dropdown = event.target.nextElementSibling;
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle a')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>

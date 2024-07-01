@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - 3BB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #94eb94;
+            color: #333;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: rgba(0,0,0,0.6);
+            position: fixed;
+            top: 0;
+            z-index: 1;
+        }
+
+        .icon img {
+            height: 60px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.4s ease-in-out;
+        }
+
+        .menu ul li a:hover {
+            color: #ff7200;
+        }
+
+        .content {
+            max-width: 800px;
+            padding: 20px;
+            background: #d7dfa3;
+            border-radius: 10px;
+            margin: 150px auto;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .content .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .content .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .content .form-group input, 
+        .content .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .content .form-group textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        .content .btn {
+            background: #ff7200;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            color: #fff;
+        }
+
+        .content .btn:hover {
+            background-color: #fff;
+            color: #ff7200;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f14b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown a:hover {
+            background-color: #dddddd41;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            .header h1 {
+                font-size: 3em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .header .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+            .content {
+                max-width: 90%;
+            }
+            .content h1 {
+                font-size: 2em;
+            }
+            .content .par {
+                font-size: 1em;
+            }
+            .content .cn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+        @media screen and (max-width: 830px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+            }
+            .navbar .icon img {
+                height: 50px;
+            }
+            .menu ul {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .menu ul li {
+                margin: 10px 0;
+            }
+            .header {
+                padding-top: 70px;
+            }
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .header .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+            .content {
+                margin-top: 80px;
+            }
+            .content h1 {
+                font-size: 1.8em;
+            }
+            .content .par {
+                font-size: 0.9em;
+            }
+            .content .cn {
+                font-size: 0.8em;
+                padding: 8px 16px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .navbar .icon img {
+                height: 40px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p {
+                font-size: 0.8em;
+            }
+            .header .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+            .content h1 {
+                font-size: 1.5em;
+            }
+            .content .par {
+                font-size: 0.8em;
+            }
+            .content .cn {
+                font-size: 0.7em;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <a href="index.html"><img src="img/2.png" alt="Logo" title="Back to Home"></a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="abo.html">About</a></li>
+                    <li class="dropdown-toggle">
+                        <a href="prod.html" onclick="toggleDropdown(event)">Products</a>
+                        <ul class="dropdown">
+                            <li><a href="prod.html#powder" >Immunity</a></li>
+                            <li><a href="prod.html#gummy" >Pastilles</a></li>
+                            <li><a href="prod.html#yogurt" >Multivitamin</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kid.html">Kid's Health</a></li>
+                    <li><a href="cont.html">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
+        <div class="content">
+            <h1>Contact Us</h1>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            var dropdown = event.target.nextElementSibling;
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle a')) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>
